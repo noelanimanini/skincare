@@ -5,5 +5,6 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
+        @ingredients = Ingredients.find(params[:id])
     end 
 end

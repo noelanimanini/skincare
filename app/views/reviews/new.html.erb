@@ -1,0 +1,11 @@
+<h1> Create a review! </h1>
+
+<%= form_with model: @user do |form| %>
+<%= form.label :review %><br>
+<%= form.text_area :review %> 
+<h3> on a scale, from 1-5, please rate the product</h3>
+<%= form.label :rating %>
+<%= form.number_field :rating%>
+<%= form.submit %>
+
+<% end %>

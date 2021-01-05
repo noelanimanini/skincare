@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
     
     def show 
         @review = Review.find(params[:id])
+        @ingredients = Ingredient.find(params[:id])
     end 
     
     def new 
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
     end 
 
     def destroy
+        
     end 
 
     def edit
