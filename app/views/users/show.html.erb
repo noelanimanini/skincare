@@ -1,4 +1,7 @@
 <h1> <%= "Welcome " + @user.name %> </h1>
 <h1> Here are the available products: </h1>
 
+<% @products.each do |product| %>
+    <%= link_to product.name, product_path(@products) %>
+    <% end %> 
 
