@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
     before_action :require_logged_in, except: [:index, :new, :create]
 
@@ -44,5 +45,7 @@ class UsersController < ApplicationController
    def user_params
       params.require(:user).permit(:username, :password, :password_confirmation, :email, :city, :state, :bio) 
    end
+
+
 
 end
