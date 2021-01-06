@@ -1,48 +1,42 @@
 class ReviewsController < ApplicationController
-    
-    def show 
-        @review = Review.find(params[:id])
-        @ingredients = Ingredient.find(params[:id])
-    end 
-    
-    def new 
-        @review = Review.new
-        
-    end 
-
     def create
-        @review = Review.create(review_params)
-       if @review.valid?
-            redirect_to @review
-       else 
-            flash[:errors] = @review.errors.full_messages
-            redirect_to new_review_path
-       end 
-    end 
-
-    def destroy
-        @review = Review.find(params[:id])
-        @review.destroy
-        redirect_to reviews_path
-    end 
+        review = Review.new(review_params)
+        if review.valid?
+        review.save
+        redirect_to product_path(review.reviewee)
+        else
+            @product = review.reviewee
+            @review = review
+            render "products/show"
+        end
+    end
 
     def edit
-        @review = Review.find(params[:id])
-    end 
+        @review = Review.find(params[:id]) 
+    end
 
     def update
-        @review = Review.create(review_params)
-       if @review.valid?
-            redirect_to @review
-       else 
-            flash[:errors] = @review.errors.full_messages
-            redirect_to edit_review_path
-       end 
-    end 
+        @review = Review.find(params[:id])
+        @review.update(review_params)
+        redirect_to product_path(@review.reviewee)
+    end
+
+    def destroy
+        product = Review.find(params[:id]).reviewee
+        Review.destroy(params[:id])
+        redirect_to product_path(brewery)
+    end
+
 
     private
 
-    def review_params 
-        params.require(:review).permit(:comment, :rating, :user_id, :product_id)
-    end 
+    def review_params
+        params.require(:review).permit(:content,:rating,:reviewer_id,:reviewee_id)
+    end
+
 end
+
+
+
+
+
