@@ -1,7 +1,53 @@
-<h1> <%= "Welcome " + @user.name %> </h1>
-<h1> Here are the available products: </h1>
+# <h1> <%= "Welcome " + @user.name %> </h1>
+# <h1> Here are the available products: </h1>
 
-<% @products.each do |product| %>
-    <%= link_to product.name, products_path(@products) %>
-    <% end %> 
+# <% @products.each do |product| %>
+#     <%= link_to product.name, products_path(@products) %>
+#     <% end %> 
 
+
+
+<div id="user-show-background" class="container-fluid">
+  <div id="profile-row" class="row">
+    <div class="col">
+      <div id="show-user-profile-container">
+        <div id="show-user-profile" class="container">
+            <div class="profile-col-headers">
+              <i class="fas fa-user-circle fa-5x"></i>
+              <br>
+              <h2 id="show-user-header-username"><%= @reviewer.username%></h2>
+          </div>
+            <div id="user-profile-container">
+              <div class="card-body">
+                <p class="class-text">Email: <%= @reviewer.email%></p>
+                <p class="class-text">City: <%= @reviewer.city%></p>
+                <p class="class-text">State: <%= @reviewer.state%></p>
+                <p class="class-text">Bio: <%= @reviewer.bio%></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div id="show-user-reviews-container">
+        <div id="show-review-profile" class="container">
+            <div class="profile-col-headers">
+            <i class="fas fa-pen-square fa-5x"></i>
+            <h2>All Reviews By User</h2>
+          </div>
+            <ul class="list-group">
+            <% @reviewer.reviews.each do |review| %>
+              <li class="list-group-item">
+                  <span class="rated_stars"><%= review.stars %></span><span class="unrated_stars"><%= review.grey_stars %> - </span><%= link_to review.reviewee.name, product_path(review.reviewee) %>
+              -
+              <%= review.content %></li>
+            
+              <br>
+              
+            <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
