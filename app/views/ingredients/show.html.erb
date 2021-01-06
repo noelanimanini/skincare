@@ -1,3 +1,5 @@
 
-<h1> Ingredients in this product: </h1>
-<%= @ingredient.name%>
+<h1> Ingredients </h1>
+<%= @ingredient.name%><br>
+<%= image_tag(@ingredient.img_url, :style => "border: 1px solid", :size => '260x180')%><br>
+<%= @ingredient.description %>

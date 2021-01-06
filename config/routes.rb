@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :brands, only: [:index, :show]
   resources :users, only: [:create, :show, :new]
-  resources :ingredients, only: [:show]
+  resources :ingredients, only: [:show, :index]
   resources :ingredient_products, only: [:index, :show]
   resources :reviews
   resources :products, only: [:index, :show]
