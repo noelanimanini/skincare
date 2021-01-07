@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :chemiskins
   resources :brands, only: [:index, :show]
-  resources :users, only: [:create, :show, :new]
+  resources :users
   resources :ingredients, only: [:show, :index]
   resources :ingredient_products, only: [:index, :show]
   resources :reviews
@@ -18,8 +18,6 @@ Rails.application.routes.draw do
  get '/login' => 'sessions#new'
  post '/login' => 'sessions#create'
  post '/logout' => 'sessions#destroy'
-
- get '/stats' => 'searches#stats'
 
 end
 

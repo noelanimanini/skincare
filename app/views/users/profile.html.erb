@@ -18,7 +18,7 @@
                 </div>
 
                 <div id="profile-sessions-link" class="card-body">
-                  <%= link_to "Edit Profile", edit_user_path(current_user), class: "card-link btn btn-secondary" %>
+                  <%= link_to "Edit Profile", edit_user_path(current_user) %>
 
                   <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "card-link btn btn-danger" %> 
                 </div>
@@ -46,29 +46,4 @@
           </div>
         </div>
       </div>
-      <div class="col">
-        <div id="show-user-product-container">
-          <div id="show-chemiskin-profile" class="container">
-              <div class="profile-col-headers">
-                <i class="fas fa-list-alt fa-5x"></i>
-                <h2>ChemiSkin</h2>
-              </div>
-              <ul class="list-group"
-              style="padding-left: 4%">
-              <% @chemiskins.each do | chemiskin | %>
-                <li class="list-group-item">
-                <%=link_to chemiskin.product.name, product_path(chemiskin.product)%> - 
-                <%= chemiskin.product.city %>
-                <br> 
-                <%= link_to "Map your Trip to this product", chemiskin.product.maps_address %>
-
-                 </li>
-                 <button id="edit_review_profile_button"><%= link_to "Remove from ChemiSkin", chemiskin, method: "DELETE" %></button>
-                 <br>
-              <% end %>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+     

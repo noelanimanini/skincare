@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit #show edit form and get the new values
-   @user = User.find(current_user.id)
+   @user = User.find(params[:id])
   end
 
   def update

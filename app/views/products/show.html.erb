@@ -6,7 +6,8 @@
         <div class="col-8" style="border: 10px solid white;">
         <h1><%= @product.name %></h1>
         <%= image_tag @product.img_url, :size => '260x180' %>
-        <%= link_to "Review",edit_review_path(@product),class:"button"%>
+        
+        <%= link_to "Review",new_review_path(@product),class:"button"%>
         <%= link_to "Log out",logout_path(@user),class:"button"%>
         </div>"
         <p>

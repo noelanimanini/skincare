@@ -9,14 +9,16 @@
                 <h1 id="new-user-header">Login</h1>
 
                 <div class="form-group">
-                    <%= form_for @user, controller: 'users', action: 'update' do |f| %>
+                <%= form_for @user, url: login_path, method: :post do |f| %>
                     <label for="username">Username</label><br>
                     <%= f.text_field :username, class: "form-control" %>
                     <br>
                     <label for="password">Password</label><br>
-                    <%= f.password_field :password, class: "form-control" %>
+                    <%= f.password_field :password %>
                     <br>
                     <%= f.submit "Submit" %>
 
                 Or <%= link_to(controller: 'users', action: 'new') {'Sign up'} %>
                     <% end %>
+
+                  
