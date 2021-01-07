@@ -11,6 +11,46 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+  <!-- navbar for all pages  -->
+  <!-- "navbar fixed-top navbar-light bg-light" -->
+  <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+    <a href="/" class="navbar-brand"><i class="fas fa-beer" ></i>CrystalClear</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a href="/" class="nav-link">Search</a>
+        </li>
+
+        <!-- if user is logged in will show hello text and logout link -->
+        <% if @user %>
+        <li>
+          <%= link_to "Welcome #{@user.print_name}!", class: "nav-link", style:"color:black;"%>
+        </li>
+
+        <li class="nav-item">
+            <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "nav-link" %>
+        </li>
+
+        <% else %>
+
+        <li class="nav-item">
+          <a href="/login" class="nav-link">Login</a>
+        </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+
+  <!-- FOOTER FOR ALL PAGES  -->
+</body>
 </html>
+  
+ 
+
+
+

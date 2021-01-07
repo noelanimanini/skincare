@@ -1,9 +1,13 @@
-<h1> Products: </h1>
 
+
+<div class="products">
 <% @products.each do |product|%>
 <div>
-<%= product.name%> 
-<%= product.description%>
-<%= product.category%>
+<%= link_to product.category, product, class:"title" %>
+<%= link_to product.name, product, class:"title" %>
+<div class="description"><%= product.description %></div>
 </div>
 <% end %>
+</div>
+
+

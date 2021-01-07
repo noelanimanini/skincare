@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col new-session-from">
+            <div id="new-session-form-container">
+                <% if params["flash"] %>
+                    <div class="alert alert-danger" style="text-align: center;">
+                        <%= params["flash"]["notice"] %>
+                    </div>
+                <% end %>
+            <h1 id="new-session-main-text">Login</h1>
+            <%= form_for @user, url: login_path, method: :post do |f| %>
+                <div class="form-group">
+                    <%= f.label :username %>
+                    <%= f.text_field :username, class: "form-control" %>
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: "form-control" %> <br>
+                    <div id="new-session-form-links-ctnr">
+                    <%= f.submit 'Log in' , class: "btn btn-primary"%> 
+                    Or <%= link_to(controller: 'users', action: 'new') {'Sign up'} %>
+                    </div>
+                </div>
+            <% end %> 
+            </div>
+        </div>
+    </div>
+</div>
+        

@@ -1,17 +1,14 @@
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
-  <%end %>
-<%end %>
+<div id="review-form-container" class="container">
+    <div id="review-form">
+        <div class="form-group">
+            <div class="profile-col-headers">
+                <i class="fab fa-stack-exchange fa-5x"></i>
+                <br>
+                <h2 id="show-user-header-username"><%= "Edit your review for #{@review.reviewee.name}: "%></h2>
+            </div>
+        <%= render partial: "shared/review_form", locals: {user: @review.reviewer, product: @review.reviewee } %>
+        </div>
+    </div>
+</div>
 
-<h1> Edit a review! </h1>
 
-<%= form_for @review do |form| %>
-<%= form.label :review %><br>
-<%= form.text_area :comment %> 
-<h3> on a scale, from 1-5, please rate the product</h3>
-<%= form.label :rating %>
-<%= form.number_field :rating%>
-<%= form.submit %>
-
-<% end %>
