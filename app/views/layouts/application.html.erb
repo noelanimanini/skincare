@@ -21,30 +21,24 @@
         <li>
           <a href="/" class="nav-link">Search</a>
         </li>
+  <body>
+  <%  if @user %>
+   <%= link_to "Log out", logout_path,  :method => :post %>
+    <h1> <%= @user.username %> </h1>
+  <% else %>
+    <%= link_to "Log in",  login_path %>
+    <%= link_to "Sing up",  new_user_path %>
 
-        <!-- if user is logged in will show hello text and logout link -->
-        <% if @user %>
-        <li>
-          <%= link_to "Welcome #{@user.print_name}!", class: "nav-link", style:"color:black;"%>
-        </li>
-
-        <li class="nav-item">
-            <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "nav-link" %>
-        </li>
-
-        <% else %>
-
-        <li class="nav-item">
-          <a href="/login" class="nav-link">Login</a>
-        </li>
-
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-
-  <%= yield %>
-
+  <% end %>
+<br>
+  <% if flash[:errors]  %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+    <%= yield %>
+  </body>
+</html>
 
   <!-- FOOTER FOR ALL PAGES  -->
 </body>
