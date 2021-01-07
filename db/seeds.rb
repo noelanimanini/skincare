@@ -17,7 +17,7 @@ Brand.destroy_all
 Ingredient.destroy_all
 User.destroy_all
 
-u1 = User.create(name: "Jason", password_digest: "string")
+u1 = User.create(username: "Jason", email: "123@gmail.com", city: "Bothell", state: "Colorado", bio: "text", password_digest: "string", password: "asdf", password_confirmation: "asdf")
 
 i1 = Ingredient.create(name: "Sodium Lauryl Sulfate", img_url: "https://www.sigmaaldrich.com/content/dam/sigma-aldrich/structure2/094/mfcd00036175.eps/_jcr_content/renditions/mfcd00036175-large.png", description: "It is a cleansing agent known for being too good at the job and potentially irritating the skin.")
 i2 = Ingredient.create(name: "Formaldehyde", img_url: "https://www.sigmaaldrich.com/content/dam/sigma-aldrich/structure8/186/mfcd00003274.eps/_jcr_content/renditions/mfcd00003274-large.png", description: "A perservative It’s consisnent exposure is not safe.")
@@ -34,12 +34,14 @@ a3 = Brand.create(name: "Maybelline")
 a4 = Brand.create(name: "elf")
 a5 = Brand.create(name: "nyx")
 
-p1 = Product.create(brand_id: Brand.all.sample.id, name: "Bobby Brown Mascara", category: "mascara", description: "this is mascara")
+10.times do 
+Product.create(brand_id: Brand.all.sample.id, name: "Bobby Brown Mascara", category: "mascara", description: "this is mascara", img_url: "https://n.io.nordstrommedia.com/id/sr3/cc517c28-9b36-4e1d-af5e-5641a6ef8212.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196")
+end 
 
 ip1 = IngredientProduct.create(product_id: Product.all.sample.id, ingredient_id: Ingredient.all.sample.id)
 
 10.times do
- Review.create(comment: "text", rating: rand(1..5), user_id: User.all.sample.id, product_id: Product.all.sample.id)
+    Review.create(content: "text", rating: rand(1..5), reviewer_id: User.all.sample.id, reviewee_id: Product.all.sample.id)
 end 
 
 

@@ -1,9 +1,14 @@
-<h1> Products: </h1>
+<h1> All Products </h1>
 
+<div id="products">
+<div class= "product">
 <% @products.each do |product|%>
-<div>
-<%= product.name%> 
+
+<%= image_tag product.img_url, :size => '300x350' %>
+<div class= "description">
+<%= link_to product.name, product, class:"title" %><br>
 <%= product.description%>
-<%= product.category%>
+
 </div>
 <% end %>
+</div>

@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_015749) do
     t.string "name"
     t.string "category"
     t.text "description"
+    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
