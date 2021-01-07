@@ -18,6 +18,8 @@ class SearchesController < ApplicationController
         else 
             cookies[:last_visited] = "home"
         end
+        @products = Product.all
+        @ingredients = Ingredient.all
     end
 
     # def stats

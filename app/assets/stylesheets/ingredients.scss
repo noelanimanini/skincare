@@ -5,7 +5,7 @@
 	display: grid;
     grid-template-columns: 1fr 1fr ;
     grid-gap: 20px;
-    border: solid;
+    
 	border-radius: 10px; 
     
     img {
@@ -17,5 +17,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr ;
         grid-gap: 20px;
+        border: solid black;
     }
 }

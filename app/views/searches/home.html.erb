@@ -1,3 +1,6 @@
-<h1> CrystalClear </h1>
-<%= link_to "products", products_path(@products),class:"button" %>
-<%= link_to "ingridients", ingredients_path(@ingredients),class:"button" %>
+
+<div><% @products.each do |product|%>
+    <%= product.name%>
+    <%= image_tag product.img_url, :size => '300x350' %>
+    <% end %>
+    </div>

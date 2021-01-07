@@ -1,3 +1,13 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#login{
+    
+    // display:none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    
+    button:hover span {display:none}
+    // button:hover:before {content:"Reply!"}
+  }

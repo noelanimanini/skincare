@@ -13,7 +13,19 @@
     </head>
 
   <body>
-  <h1><nav> can you seed this/? </nav></h1>
+  <nav>
+  <h1>ChemiSkin</h1>  
+  <% if current_user %>
+  <%= link_to "Welcome #{current_user.username}!", profile_path, style:"color:black;"%><br>
+  <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "nav-link" %>
+  <% else %>
+  <%= link_to "Login or Sign Up", login_path%>
+  <% end %>
+
+  <div> <%= link_to "Ingredients", ingredients_path%></div>
+  <div> <%= link_to "Products", products_path%></div>
+
+  </nav>
     <main><%= yield %></main>
   </body>
 </html>

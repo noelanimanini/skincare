@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 #products {
-    display: grid;
+    // display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    border: solid;
+    border: solid black;
 	border-radius: 10px; 
 
 .product {
-	display: grid;
+	// display: grid;
 	grid-template-columns: 1fr 1fr;
 
 }
