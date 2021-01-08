@@ -41,7 +41,7 @@ end
 ip1 = IngredientProduct.create(product_id: Product.all.sample.id, ingredient_id: Ingredient.all.sample.id)
 
 10.times do
-    Review.create(content: "text", rating: rand(1..5), reviewer_id: User.all.sample.id, reviewee_id: Product.all.sample.id)
+    Review.create(content: "text", rating: rand(1..5), user_id: User.all.sample.id, product_id: Product.all.sample.id)
 end 
 
 

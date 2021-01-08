@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Skincare</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ChemiSkin</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-  
-    </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pattaya&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1086d342b4.js" crossorigin="anonymous"></script>
+
+    <!-- for home page header text -->
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  </head>
 
   <body>
-  <nav>
-  <h1>ChemiSkin</h1>  
-  <% if current_user %>
-  <%= link_to "Welcome #{current_user.username}!", profile_path, style:"color:black;"%><br>
-  <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "nav-link" %>
-  <% else %>
-  <%= link_to "Login or Sign Up", login_path%>
-  <% end %>
+    <!-- navbar for all pages  -->
+    <!-- "navbar fixed-top navbar-light bg-light" -->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+      <a href="/" class="navbar-brand"><i class="material-icons md-36">
+      science
+      </i>ChemiSkin</a>
 
-  <div> <%= link_to "Ingredients", ingredients_path%></div>
-  <div> <%= link_to "Products", products_path%></div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <!-- if user is logged in will show hello text and logout link -->
+          <li class="nav-item">
+          <a href="/products" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+          <a href="/ingredients" class="nav-link">Ingredients</a>
+          </li>
+          <% if current_user %>
+          <li>
+            <%= link_to "Welcome #{current_user.print_name}!", profile_path, class: "nav-link", style:"color:black;"%>
+          </li>
 
-  </nav>
+          <li class="nav-item">
+              <%= link_to "Log Out",({controller: 'sessions', action: 'destroy', method: 'post'}), method: "POST", class: "nav-link" %>
+          </li>
+
+          <% else %>
+
+          <li class="nav-item">
+            <a href="/login" class="nav-link">Login</a>
+          </li>
+
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <main><%= yield %></main>
+
+
+    <!-- FOOTER FOR ALL PAGES  -->
   </body>
 </html>

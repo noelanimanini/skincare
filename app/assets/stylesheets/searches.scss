@@ -1,3 +1,49 @@
-// Place all the styles related to the searches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// @mixin grid($cols, $mgn) {
+// 	float: left; 
+// 	margin-right $mgn;
+// 	margin-bottom $mgn;
+// 	width: ((100% - (($cols - 1) * $msn)) / $cols );
+// 	&:nth-child(#{cols}n)
+// 		margin-right 0;
+
+// }
+
+// #home {
+// 	display: grid;
+// 	grid-template-columns: 1fr 1fr;
+// 	// grid-template-columns: repeat(2, 1fr);
+// 	// grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+// 	grid-gap: 20px;
+
+// 	img {
+// 		width: 100%;
+// 		height: 300px;
+// 		object-fit: cover;
+// 		border-bottom-left-radius: 10px;
+//     border-top-left-radius: 10px;
+// 	}
+// }
+// @media only screen and (max-width: 800px) {
+// 	#pets {
+// 		grid-template-columns: 1fr;
+//   }
+// }
+
+#home {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	// grid-template-columns: repeat(2, 1fr);
+	// grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	grid-gap: 20px;
+	border: 10px solid black;
+	
+
+	img {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		border: 10px solid black;
+		padding-top: 200px;
+	}
+}
+

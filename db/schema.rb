@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_06_015749) do
+ActiveRecord::Schema.define(version: 2021_01_04_234508) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "chemiskins", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,8 +46,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_015749) do
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
-    t.string "reviewer_id"
-    t.string "reviewee_id"
+    t.integer "product_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

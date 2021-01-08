@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <% cookies[:last_visited] = "profile" %>
 <div id="user-show-background" class="container-fluid">
     <div id="profile-row" class="row">
@@ -26,24 +31,5 @@
           </div>
         </div>
       </div>
-      <div class="col">
-        <div id="show-user-reviews-container">
-          <div id="show-review-profile" class="container">
-              <div class="profile-col-headers">
-              <i class="fas fa-pen-square fa-5x"></i>
-              <h2>All Reviews By User</h2>
-            </div>
-              <ul class="list-group">
-              <% current_user.reviews.each do |review| %>
-                <li class="list-group-item">
-                    <strong><%= link_to review.reviewee.name, product_path(review.reviewee) %></strong> - <span class="rated_stars"><%= review.stars %></span><span class="unrated_stars"><%= review.grey_stars %> </span> 
-                <br>
-                <%= review.content %></li>
-                <button id="edit_review_profile_button"><%=link_to "Edit or Delete this Review",edit_review_path(review)%></button>
-                <br>
-              <% end %>
-              </ul>
-          </div>
-        </div>
-      </div>
+      
      

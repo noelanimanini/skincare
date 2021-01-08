@@ -1,46 +1,69 @@
 class ReviewsController < ApplicationController
-    def new 
-        @review = Review.new
+   
+    def index 
+        @reviews = Review.all
     end 
-    
-    def create
-        review = Review.new(review_params)
-        if review.valid?
-        review.save
-        redirect_to product_path(@product)
-        else
-            @product = review.reviewee
-            @review = review
-            render "products/show"
-        end
-    end
 
-    def edit
-        @review = Review.find(params[:id]) 
+    def show 
+        @review = Review.find(params[:id])
+    end 
+
+    def new
+        @review = Review.new
+        @products = Product.all
+    end 
+
+    # def create
+    #     @review = Review.create(review_params)
+    #     if @review.valid? 
+    #     redirect_to @review
+    #     else 
+    #     flash[:errors] = @review.errors.full_messages
+    #      redirect_to new_review_path
+    #     # render "new"
+    #     end 
+    # end 
+
+
+    def create
+        @products = Product.all
+        @review = Review.new(review_params)
+        if @review.valid?
+        @review.save
+        redirect_to product_path(@review.product)
+        else
+            render "reviews/new"
+        end
     end
 
     def update
         @review = Review.find(params[:id])
         @review.update(review_params)
-        redirect_to product_path(@review.reviewee)
+        if @review.valid? 
+            redirect_to product_path(@review) 
+        else 
+            flash[:errors] = @review.errors.full_messages
+            redirect_to edit_song_path
+            # render "edit"
+        end 
+    end 
+
+    def edit
+        @review = Review.find(params[:id])
     end
 
-    def destroy
-        product = Review.find(params[:id]).reviewee
-        Review.destroy(params[:id])
-        redirect_to product_path(brewery)
-    end
+    def destroy 
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect_to products_path
+    end 
 
-
-    private
+    private 
 
     def review_params
-        params.require(:review).permit(:content,:rating,:reviewer_id,:reviewee_id)
-    end
-
+        params.require(:review).permit(:content, :rating, :product_id, :user_id)
+    end 
 end
-
-
 
 
 

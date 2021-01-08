@@ -1,17 +1,35 @@
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <%= error %>
-  <%end %>
-<%end %>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<h1> Create a review! </h1>
-
-<%= form_for @review do |form| %>
-<%= form.label :review %><br>
-<%= form.text_area :content %> 
-<h3> on a scale, from 1-5, please rate the product</h3>
-<%= form.label :rating %>
-<%= form.number_field :rating%>
-<%= form.submit %>
-
-<% end %>
+<h1> New Review Form </h1>
+<%= form_with model: @review do |f| %>
+    <label>Comment</label><br>
+    <%= f.text_field :content %> <br>
+    <label> Product: </label>
+    <%= f.collection_select :product_id, @products, :id, :name%>
+    <label>Rating</label><br>
+    <span>Unrated</span>
+    <%= f.radio_button :rating, 1 %> 
+    <label for="review_rating_1">
+    <span>Rating 1 Star</span></label>
+    <%= f.radio_button :rating, 2 %> 
+    <label for="review_rating_2">
+    <span>Rating 2 Star</span></label>
+    <%= f.radio_button :rating, 3 %> 
+    <label for="review_rating_3">
+    <span>Rating 3 Star</span></label>
+    <%= f.radio_button :rating, 4 %> 
+    <label for= "review_rating_4">
+    <span>Rating 4 Star</span></label>
+    <%= f.radio_button :rating, 5 %> 
+    <label for="review_rating_5">
+    <span>Rating 5 Star</span></label>
+    <%= f.hidden_field(:user_id, value: @review.user_id) %>
+    <%= f.hidden_field(:product_id, value: @review.product_id) %>
+    <%= f.submit "Submit", class: "btn btn-secondary", style: "margin-top: 10px;" %>
+    <br>
+    
+  <% end %>
