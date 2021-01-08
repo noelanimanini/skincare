@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show #will be for user even without session
 
-   @reviewer = User.find(params[:id])
+   @user = User.find(params[:id])
   end
 
   def new
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
      @user = User.create(user_params)  
 
      if @user.valid?
-        @user.save
         session[:user_id] = @user.id 
         redirect_to home_path
      else
