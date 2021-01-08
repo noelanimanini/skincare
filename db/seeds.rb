@@ -34,8 +34,15 @@ a3 = Brand.create(name: "Maybelline")
 a4 = Brand.create(name: "elf")
 a5 = Brand.create(name: "nyx")
 
-10.times do 
-Product.create(brand_id: Brand.all.sample.id, name: "Bobby Brown Mascara", category: "mascara", description: "this is mascara", img_url: "https://n.io.nordstrommedia.com/id/sr3/cc517c28-9b36-4e1d-af5e-5641a6ef8212.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196")
+5.times do 
+Product.create(brand_id: Brand.all.sample.id, name: "Kale + Green Tea Spinach Vitamins", category: "facial cleanser", description: "An award-winning face wash with cold-pressed antioxidants to remove makeup, prevent buildup in pores, and support skin’s pH balance.", img_url: "https://www.sephora.com/productimages/sku/s1863588-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
+Product.create(brand_id: Brand.all.sample.id, name: "Tatcha Rice Wash Cleanser", category: "facial cleanser", description: "A PH-neutral, daily cream cleanser that gently washes away impurities without stripping skin—leaving it hydrated, feeling soft, and looking luminous.", img_url: "https://www.sephora.com/productimages/sku/s2382232-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
+Product.create(brand_id: Brand.all.sample.id, name: "Soy Makeup Removing Face Wash", category: "facial cleanser", description: "A bestselling three-in-one face wash that gently melts away makeup and mascara (without the sting!), removes impurities, and tones for clean, balanced skin.", img_url: "https://www.sephora.com/productimages/sku/s487694-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
+Product.create(brand_id: Brand.all.sample.id, name: "Herbivore
+Pink Cloud Rosewater + Squalane Makeup Removing Face Wash", category: "facial cleanser", description: "A multitasking face wash that gently melts away makeup, removes impurities, and hydrates for clean, balanced skin.", img_url: "https://www.sephora.com/productimages/sku/s2379337-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
+Product.create(brand_id: Brand.all.sample.id, name: "Tatcha Rice Wash Cleanser", category: "facial cleanser", description: "A PH-neutral, daily cream cleanser that gently washes away impurities without stripping skin—leaving it hydrated, feeling soft, and looking luminous.", img_url: "https://www.sephora.com/productimages/sku/s2382232-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
+Product.create(brand_id: Brand.all.sample.id, name: "The INKEY List
+Salicylic Acid Acne + Pore Cleanser", category: "Salicylic Acid Cleanser", description: "A lightly-foaming cleanser that removes makeup and dirt, helping to reduce blackheads, acne, and blemishes while unclogging pores.", img_url: "https://www.sephora.com/productimages/sku/s2211605-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=583")
 end 
 
 ip1 = IngredientProduct.create(product_id: Product.all.sample.id, ingredient_id: Ingredient.all.sample.id)

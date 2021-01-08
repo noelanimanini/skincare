@@ -1,12 +1,12 @@
 // Place all the styles related to the Ingredients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-#ingredient {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+#ingredients{
+	display: flex;
+	flex-direction: column;
 	// grid-template-columns: repeat(2, 1fr);
 	// grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-	grid-gap: 20px;
+	align-items: center;
 	border: 10px solid black;
 	
 

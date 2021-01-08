@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<head><h1> Ingredients </h1></head>
-<body>
+<br>
+<br>
+<br>
+<h1> All Ingredients </h1>
 
-<div id="ingredient">
-<div class="ingredients">
-<% @ingredients.each do |ingredient|%><br>
+<div id="ingredients">
+<% @ingredients.each do |ingredient|%>
 
-<%= link_to ingredient.name, ingredient%><br>
-<div>
-<%= image_tag ingredient.img_url, style: 'height:50px;width:100px;margin-bottom:20px;'%>
+<div id="image_div"><%= image_tag ingredient.img_url, :size => '300x350' %></div>
+<div class= "description">
+<%= link_to ingredient.name, ingredient, class:"title" %><br>
+<%= ingredient.description%>
+
+</div>
 <% end %>
-</body>
-</html>
+</div>
